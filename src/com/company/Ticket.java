@@ -6,8 +6,10 @@ public class Ticket {
 
     private int priority;
     private String reporter; //Stores person or department who reported issue
-    private String description;
+    public String description;
     private Date dateReported;
+    private Date resolutionDate;
+    private String closingReason;
 
     //TODO Problem 1: explain the role of ticketIdCounter and ticketID
 
@@ -32,6 +34,16 @@ public class Ticket {
         ticketIdCounter++;
     }
 
+    void setDescription(String description){
+        this.description = description;
+    }
+    String getDescription(){
+        return description;
+    }
+    void setResolutionDate(Date date){
+        this.resolutionDate = date;
+    }
+
     protected int getPriority() {
         return priority;
     }
@@ -41,8 +53,9 @@ public class Ticket {
     }
 
     public String toString(){
-        return("ID: " + this.ticketID + " Issue: " + this.description + " Priority: " + 					this.priority + " Reported by: "
-                + this.reporter + " Reported on: " + this.dateReported);
+        return("ID: " + this.ticketID + " Issue: " + this.description + " Priority: " + this.priority + " Reported by: "
+                + this.reporter + " Reported on: " + this.dateReported + " Resolution Date: " + this.resolutionDate +
+        "Ticket resolution: " + closingReason);
     }
 }
 
